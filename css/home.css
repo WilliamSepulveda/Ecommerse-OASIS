@@ -401,3 +401,105 @@ footer {
   cursor: pointer;
   z-index: 1001;
 }
+
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .main-section {
+      flex-direction: column;
+      height: auto;
+      padding: 2rem;
+      text-align: center;
+    }
+  
+    .main-text, .main-image {
+      padding: 0;
+    }
+  
+    .main-text {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+  
+    .products {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product-card {
+      width: 90%;
+    }
+  
+    .info-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .section-info2{
+        display: flex;
+        flex-direction: column;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .info-text p {
+      font-size: 1.2rem;
+    }
+  
+    .contact-section {
+      flex-direction: column;
+      padding: 2rem;
+    }
+  
+    .contact-image img {
+        margin-top: 5vh;
+      width: 300px;
+      height: auto;
+    }
+  
+    .modal-content {
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo img {
+      height: 60px;
+    }
+  
+    .button, button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  
+    .section-title {
+      font-size: 1.8rem;
+    }
+    .section-info2{
+        display: flex;
+        flex-direction: column;
+    }
+    .info-text h2 {
+      font-size: 1.5rem;
+    }
+  
+    .info-text p {
+      font-size: 1rem;
+    }
+  
+    #modalImage {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .encuesta-btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+  
