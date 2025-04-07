@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OASIS - Belleza y Salud</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #FDF5F2;
+      --bg-header: #ffccb7da;
+      --accent-light: #EEE6E1;
+      --text-dark: #3E2F23;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      scroll-behavior: smooth;
+      font-family: 'Lora', serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    h1, h2, h3, .title {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-dark);
+    }
+
+    header {
+      padding: 0.1rem 1rem;
+      background-color: var(--bg-header);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .button, button {
+      background-color: var(--accent-light);
+      color: var(--text-dark);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Lora', serif;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid black; 
+    }
+
+    .button:hover, button:hover {
+      background-color: var(--text-dark);
+      color: var(--bg-light);
+    }
+
+    .main-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.main-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../storage/photos/wallpaper.jpg');
+  background-position: center;
+  background-size: cover;
+  opacity: 0.15; /* Ajusta este valor para más o menos opacidad */
+  z-index: 0;
+}
+
+.main-text {
+  flex: 1;
+  padding-right: 2rem;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.main-image {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+
+    .main-image {
+      flex: 1;
+    }
+
+    .main-image img {
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      overflow-x: auto;
+    }
+
+    .product-card {
+      min-width: 250px;
+      background-color: var(--accent-light);
+      padding: 1rem;
+      border-radius: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .section-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 4rem;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      gap: 2rem;
+    }
+
+    .info-text {
+      flex: 1;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .info-img {
+      flex: 1;
+    }
+
+    .info-img img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background-color: var(--bg-light);
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 500px;
+      text-align: center;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    .contact-section {
+      display: flex;
+      padding: 4rem;
+      background-color: var(--accent-light);
+      gap: 2rem;
+    }
+
+    .contact-form {
+      margin-top: 10vh;
+      flex: 1;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--text-dark);
+      border-radius: 10px;
+      font-family: 'Lora', serif;
+    }
+
+    .contact-image {
+      flex: 1;
+      width: 100px;
+      height: auto;
+      top: 0;
+      margin-top: -50px;
+    }
+
+    .contact-image img {
+      width: 80%;
+      height: 100%;
+    }
+
+    footer {
+      background-color: var(--accent-light);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--text-dark);
+      color: var(--bg-light);
+      padding: 0.5rem 1rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <a href="../index.html">
+          <img src="../storage/photos/logo.png" alt="OASIS" style="height: 60px;">
+        </a>
+      </div>
+          <nav>
+      <button class="button">Inicio</button>
+    </nav>
+  </header>
+
+  <section class="main-section">
+    <div class="main-text">
+      <h1 class="title">Bienvenido a OASIS</h1>
+      <p>La salud es belleza. Descubre nuestros productos especialmente seleccionados para ti.</p>
+    </div>
+    <div class="main-image">
+      <img src="https://via.placeholder.com/600x400?text=OASIS" alt="OASIS Portada">
+    </div>
+  </section>
+
+  <section class="products">
+    <div class="product-card" onclick="showModal('Producto 1')">Producto 1</div>
+    <div class="product-card" onclick="showModal('Producto 2')">Producto 2</div>
+    <div class="product-card" onclick="showModal('Producto 3')">Producto 3</div>
+    <div class="product-card" onclick="showModal('Producto 4')">Producto 4</div>
+    <div class="product-card" onclick="showModal('Producto 5')">Producto 5</div>
+  </section>
+
+  <!-- Secciones grandes de productos -->
+  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+    <div class="info-text">
+      <h2>Producto 1</h2>
+      <p>Descripción detallada del producto 1...</p>
+    </div>
+    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 1"></div>
+  </section>
+  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+    <div class="info-text">
+      <h2>Producto 2</h2>
+      <p>Descripción detallada del producto 2...</p>
+    </div>
+    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 2"></div>
+  </section>
+  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+    <div class="info-text">
+      <h2>Producto 3</h2>
+      <p>Descripción detallada del producto 3...</p>
+    </div>
+    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 3"></div>
+  </section>
+  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+    <div class="info-text">
+      <h2>Producto 4</h2>
+      <p>Descripción detallada del producto 4...</p>
+    </div>
+    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 4"></div>
+  </section>
+  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+    <div class="info-text">
+      <h2>Producto 5</h2>
+      <p>Descripción detallada del producto 5...</p>
+    </div>
+    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 5"></div>
+  </section>
+
+  <!-- Sección misión y visión -->
+  <section class="section-info">
+    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Misión"></div>
+    <div class="info-text">
+      <h2>Misión</h2>
+      <p>Proveer bienestar, salud y belleza a través de productos naturales y efectivos.</p>
+    </div>
+  </section>
+  <section class="section-info">
+    <div class="info-text">
+      <h2>Visión</h2>
+      <p>Ser la marca líder en cuidado personal integral con responsabilidad y estilo.</p>
+    </div>
+    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Visión"></div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- Contacto -->
+  <section class="contact-section">
+    <div class="contact-form">
+      <h2>Contáctanos</h2>
+      <input type="text" placeholder="Tu nombre">
+      <textarea placeholder="Mensaje"></textarea>
+      <a href="https://wa.me/5210000000000" target="_blank">
+        <button class="button">Enviar a WhatsApp</button>
+      </a>
+    </div>
+    <div class="contact-image">
+      <img src="../storage/photos/contactanos.png" alt="Contáctanos">
+    </div>
+  </section>
+
+  <footer>
+    <p>© OASIS 2025 • Misión • Visión • Productos • Contacto</p>
+  </footer>
+
+  <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if (window.scrollY > window.innerHeight) {
+        btn.style.display = 'block';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function showModal(productName) {
+      const modal = document.getElementById('productModal');
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `<h2>${productName}</h2><p>Descripción breve del producto.</p>`;
+      modal.style.display = 'flex';
+    }
+
+    document.getElementById('productModal').addEventListener('click', () => {
+      document.getElementById('productModal').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
