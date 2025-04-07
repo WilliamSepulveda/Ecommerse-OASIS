@@ -4,253 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OASIS - Belleza y Salud</title>
+  <link rel="stylesheet" href="../css/home.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-light: #FDF5F2;
-      --bg-header: #ffccb7da;
-      --accent-light: #EEE6E1;
-      --text-dark: #3E2F23;
-    }
+  <script type="module" src="../js/home.js"></script>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      scroll-behavior: smooth;
-      font-family: 'Lora', serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-    }
-
-    h1, h2, h3, .title {
-      font-family: 'Playfair Display', serif;
-      color: var(--text-dark);
-    }
-
-    header {
-      padding: 0.1rem 1rem;
-      background-color: var(--bg-header);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo img {
-      height: 100px;
-    }
-
-    .button, button {
-      background-color: var(--accent-light);
-      color: var(--text-dark);
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 10px;
-      font-family: 'Lora', serif;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: 1px solid black; 
-    }
-
-    .button:hover, button:hover {
-      background-color: var(--text-dark);
-      color: var(--bg-light);
-    }
-
-    .main-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  padding: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
-.main-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../storage/photos/wallpaper.jpg');
-  background-position: center;
-  background-size: cover;
-  opacity: 0.15; /* Ajusta este valor para más o menos opacidad */
-  z-index: 0;
-}
-
-.main-text {
-  flex: 1;
-  padding-right: 2rem;
-  font-size: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.main-image {
-  flex: 1;
-  position: relative;
-  z-index: 1;
-}
-
-
-    .main-image {
-      flex: 1;
-    }
-
-    .main-image img {
-      max-width: 100%;
-      border-radius: 20px;
-    }
-
-    .products {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      padding: 4rem 2rem;
-      overflow-x: auto;
-    }
-
-    .product-card {
-      min-width: 250px;
-      background-color: var(--accent-light);
-      padding: 1rem;
-      border-radius: 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .product-card:hover {
-      transform: scale(1.05);
-    }
-
-    .section-info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 100vh;
-      padding: 4rem;
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
-      gap: 2rem;
-    }
-
-    .info-text {
-      flex: 1;
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 2rem;
-      border-radius: 10px;
-    }
-
-    .info-img {
-      flex: 1;
-    }
-
-    .info-img img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-
-    .modal-content {
-      background-color: var(--bg-light);
-      padding: 2rem;
-      border-radius: 16px;
-      max-width: 500px;
-      text-align: center;
-      animation: zoomIn 0.3s ease;
-    }
-
-    @keyframes zoomIn {
-      from {transform: scale(0.8); opacity: 0;}
-      to {transform: scale(1); opacity: 1;}
-    }
-
-    .contact-section {
-      display: flex;
-      padding: 4rem;
-      background-color: var(--accent-light);
-      gap: 2rem;
-    }
-
-    .contact-form {
-      margin-top: 10vh;
-      flex: 1;
-    }
-
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid var(--text-dark);
-      border-radius: 10px;
-      font-family: 'Lora', serif;
-    }
-
-    .contact-image {
-      flex: 1;
-      width: 100px;
-      height: auto;
-      top: 0;
-      margin-top: -50px;
-    }
-
-    .contact-image img {
-      width: 80%;
-      height: 100%;
-    }
-
-    footer {
-      background-color: var(--accent-light);
-      text-align: center;
-      padding: 2rem;
-    }
-
-    #backToTop {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: var(--text-dark);
-      color: var(--bg-light);
-      padding: 0.5rem 1rem;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      display: none;
-      cursor: pointer;
-      z-index: 1001;
-    }
-  </style>
 </head>
 <body>
   <header>
     <div class="logo">
         <a href="../index.html">
-          <img src="../storage/photos/logo.png" alt="OASIS" style="height: 60px;">
+          <img src="../storage/photos/logo.png" alt="OASIS" style="height: 120px;">
         </a>
       </div>
           <nav>
@@ -264,69 +27,152 @@
       <p>La salud es belleza. Descubre nuestros productos especialmente seleccionados para ti.</p>
     </div>
     <div class="main-image">
-      <img src="https://via.placeholder.com/600x400?text=OASIS" alt="OASIS Portada">
+      <img src="../storage/photos/completokit-Photoroom.png" alt="OASIS Portada">
     </div>
   </section>
 
-  <section class="products">
-    <div class="product-card" onclick="showModal('Producto 1')">Producto 1</div>
-    <div class="product-card" onclick="showModal('Producto 2')">Producto 2</div>
-    <div class="product-card" onclick="showModal('Producto 3')">Producto 3</div>
-    <div class="product-card" onclick="showModal('Producto 4')">Producto 4</div>
-    <div class="product-card" onclick="showModal('Producto 5')">Producto 5</div>
+  <section id="productos"  class="products">
+    <div class="product-card" onclick="showModal('Producto 1', '../storage/photos/aceite-Photoroom.png', 'Nutre intensamente, ayuda a regenerar la piel, aporta firmeza y reduce líneas finas.')">
+      <img src="../storage/photos/aceite-Photoroom.png" alt="Producto 1" />
+      <p>Esencia de Grano Dorado
+    </p>
+    </div>
+  
+    <div class="product-card" onclick="showModal('Producto 2', '../storage/photos/aceite2-Photoroom.png', 'Hidratación profunda, mejora la luminosidad de la piel y ayuda a emparejar el tono.')">
+      <img src="../storage/photos/aceite2-Photoroom.png" alt="Producto 2" />
+      <p>Luz de Arroz</p>
+    </div>
+  
+    <div class="product-card" onclick="showModal('Producto 3', '../storage/photos/crema1-Photoroom.png', 'Exfoliación suave con partículas de arroz. Elimina células muertas y suaviza la textura de la piel.')">
+      <img src="../storage/photos/crema1-Photoroom.png" alt="Producto 3" />
+      <p>Pulido de Luna</p>
+    </div>
+  
+    <div class="product-card" onclick="showModal('Producto 4', '../storage/photos/crema2-Photoroom.png', 'Reduce ojeras, bolsas y signos de fatiga. Hidrata la zona delicada del contorno de ojos.')">
+      <img src="../storage/photos/crema2-Photoroom.png" alt="Producto 4" />
+      <p>Mirada de Seda</p>
+    </div>
+  
+    <div class="product-card" onclick="showModal('Producto 5', '../storage/photos/jabon-Photoroom.png', 'Limpieza suave pero efectiva. Elimina impurezas sin resecar, dejando la piel fresca y suave.')">
+      <img src="../storage/photos/jabon-Photoroom.png" alt="Producto 5" />
+      <p>Nube de Arroz</p>
+    </div>
+    <div class="product-card" onclick="showModal('Producto 5', '../storage/photos/labial2-Photoroom.png', 'Deja los labios más suaves y lisos, gracias al almidón de arroz que mejora la textura.')">
+        <img src="../storage/photos/labial2-Photoroom.png" alt="Producto 5" />
+        <p>SilkRice</p>
+      </div>
   </section>
+  
+  <!-- Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <img id="modalImage" src="" alt="Imagen del producto" />
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <script>
+    function showModal(title, imageUrl, description) {
+      console.log("Abriendo modal con:", title, imageUrl, description);
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalImage').src = imageUrl;
+      document.getElementById('modalDesc').textContent = description;
+      document.getElementById('productModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('productModal').style.display = 'none';
+    }
+  </script>
+  
+  
 
   <!-- Secciones grandes de productos -->
-  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+  <!-- <section class="section-info" data-bg="../storage/photos/fondogrande2.jpg">
     <div class="info-text">
-      <h2>Producto 1</h2>
-      <p>Descripción detallada del producto 1...</p>
+      <h2>Esencia de Grano Dorado</h2>
+      <p>Nutre intensamente, ayuda a regenerar la piel, aporta firmeza y reduce líneas finas.
+    </p>
     </div>
-    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 1"></div>
-  </section>
-  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+    <div class="info-img">
+      <img src="../storage/photos/aceite-Photoroom.png" alt="Producto 1" style="width: 450px;">
+    </div>
+  </section> 
+  
+   <section class="section-info" data-bg="../storage/photos/fondogrande2.jpg">
     <div class="info-text">
-      <h2>Producto 2</h2>
-      <p>Descripción detallada del producto 2...</p>
+      <h2>Luz de Arroz
+    </h2>
+      <p>Hidratación profunda, mejora la luminosidad de la piel y ayuda a emparejar el tono.
+    </p>
     </div>
-    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 2"></div>
-  </section>
-  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+    <div class="info-img"><img src="../storage/photos/aceite2-Photoroom.png" alt="Producto 2" style="width: 450px;"></div>
+  </section> 
+  <section class="section-info" data-bg="../storage/photos/fondogrande2.jpg">
     <div class="info-text">
       <h2>Producto 3</h2>
       <p>Descripción detallada del producto 3...</p>
     </div>
-    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 3"></div>
+    <div class="info-img"><img src="../storage/photos/crema1-Photoroom.png" alt="Producto 3"  style="width: 450px;"></div>
   </section>
-  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+  <section class="section-info" data-bg="../storage/photos/fondogrande2.jpg">
     <div class="info-text">
       <h2>Producto 4</h2>
       <p>Descripción detallada del producto 4...</p>
     </div>
-    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 4"></div>
+    <div class="info-img"><img src="../storage/photos/crema2-Photoroom.png" alt="Producto 4"  style="width: 450px;"></div>
   </section>
-  <section class="section-info" style="background-image: url('https://via.placeholder.com/800x600');">
+  <section class="section-info" data-bg="../storage/photos/fondogrande2.jpg">
     <div class="info-text">
       <h2>Producto 5</h2>
       <p>Descripción detallada del producto 5...</p>
     </div>
-    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Producto 5"></div>
+    <div class="info-img"><img src="../storage/photos/jabon-Photoroom.png" alt="Producto 5 " style="width: 450px;"></div>
+  </section> -->
+  <section class="section-info" data-bg="../storage/photos/fondogrande2.jpg">
+    <h1 class="section-title">Producto innovador</h1>
+  
+    <div class="info-content">
+      <div class="info-text">
+        <h2>SilkRice</h2>
+        <p>Deja los labios más suaves y lisos, gracias al almidón de arroz que mejora la textura.</p>
+      </div>
+  
+      <div class="info-img">
+        <img src="../storage/photos/labial2-Photoroom.png" alt="Producto 5" style="width: 450px;">
+      </div>
+    </div>
   </section>
+  
+  
 
   <!-- Sección misión y visión -->
-  <section class="section-info">
-    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Misión"></div>
+  <section id="mision" class="section-info2">
+    <div class="info-img"><img src="../storage/photos/cross-posting-illustration_335657-4670-Photoroom.png" alt="Misión" style="width: 550px;"></div>
     <div class="info-text">
       <h2>Misión</h2>
-      <p>Proveer bienestar, salud y belleza a través de productos naturales y efectivos.</p>
+      <p>En Oasis, nuestra misión es crear productos
+        de cuidado personal naturales y efectivos
+        que ayuden a las personas a alcanzar una
+        piel saludable y radiante. Nos
+        comprometemos a utilizar ingredientes de
+        alta calidad, respetar el medio ambiente y
+        brindar un servicio excepcional a nuestros
+        clientes.</p>
     </div>
   </section>
-  <section class="section-info">
+  <section id="vision" class="section-info2">
     <div class="info-text">
       <h2>Visión</h2>
-      <p>Ser la marca líder en cuidado personal integral con responsabilidad y estilo.</p>
+      <p>Queremos ser reconocidos como uno de los mejores
+        laboratorios, responsables e innovadores de la región,
+        que desarrollan productos de cuidado facial que no solo
+        mejoran la apariencia, sino que también promueven la
+        salud y el bienestar de la piel y del medio ambiente.</p>
     </div>
-    <div class="info-img"><img src="https://via.placeholder.com/400x400" alt="Visión"></div>
+    <div class="info-img"><img src="../storage/photos/hand-drawn-step-illustration_52683-106774-Photoroom.png" alt="Visión" style="width: 550px;"></div>
   </section>
 
   <!-- Modal -->
@@ -335,14 +181,29 @@
   </div>
 
   <!-- Contacto -->
-  <section class="contact-section">
+  <section id="contacto"  class="contact-section">
     <div class="contact-form">
       <h2>Contáctanos</h2>
-      <input type="text" placeholder="Tu nombre">
-      <textarea placeholder="Mensaje"></textarea>
-      <a href="https://wa.me/5210000000000" target="_blank">
-        <button class="button">Enviar a WhatsApp</button>
-      </a>
+      <form id="whatsappForm">
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit" class="button">Enviar a WhatsApp</button>
+      </form>
+      <script>
+        document.getElementById("whatsappForm").addEventListener("submit", function (e) {
+          e.preventDefault(); // Evita que se recargue
+      
+          const nombre = document.getElementById("nombre").value.trim();
+          const mensaje = document.getElementById("mensaje").value.trim();
+      
+          const texto = `Hola, soy ${nombre}. ${mensaje}`;
+          const numero = "573214777920"; // sin el "+" y sin paréntesis
+          const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+      
+          window.open(url, "_blank");
+        });
+      </script>
+            
     </div>
     <div class="contact-image">
       <img src="../storage/photos/contactanos.png" alt="Contáctanos">
@@ -350,31 +211,18 @@
   </section>
 
   <footer>
-    <p>© OASIS 2025 • Misión • Visión • Productos • Contacto</p>
+    <p>
+      © OASIS 2025 • 
+      <a href="#mision">Misión</a> • 
+      <a href="#vision">Visión</a> • 
+      <a href="#productos">Productos</a> • 
+      <a href="#contacto">Contacto</a>
+    </p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc37CBxpUq1pd1maVd7-NzjMA0aryqEdzTsyR5Dgh3NYetPCw/viewform?usp=header" target="_blank" class="encuesta-btn">Haz clic para ver la encuesta</a>
   </footer>
+  
 
   <div id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
 
-  <script>
-    window.addEventListener('scroll', () => {
-      const btn = document.getElementById('backToTop');
-      if (window.scrollY > window.innerHeight) {
-        btn.style.display = 'block';
-      } else {
-        btn.style.display = 'none';
-      }
-    });
-
-    function showModal(productName) {
-      const modal = document.getElementById('productModal');
-      const content = document.getElementById('modalContent');
-      content.innerHTML = `<h2>${productName}</h2><p>Descripción breve del producto.</p>`;
-      modal.style.display = 'flex';
-    }
-
-    document.getElementById('productModal').addEventListener('click', () => {
-      document.getElementById('productModal').style.display = 'none';
-    });
-  </script>
 </body>
 </html>
